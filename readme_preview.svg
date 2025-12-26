@@ -1,0 +1,100 @@
+<svg viewBox="0 0 882 335" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* https://github.com/aaron-williamson/base16-alacritty/blob/master/colors/base16-tomorrow-night-256.yml */
+        pre {
+            background: #1d1f21;
+            margin: 0;
+            padding: 10px;
+            border-radius: 6px;
+            color: #ffffff;
+            font: 12px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+        }
+        
+        pre .bold {
+            font-weight: bold;
+        }
+        
+        pre .header-bug,
+        pre .header-error {
+            color: #cc6666;
+            font-weight: bold;
+        }
+        
+        pre .header-warning {
+            color: #f0c674;
+            font-weight: bold;
+        }
+        
+        pre .header-note {
+            color: #b5bd68;
+            font-weight: bold;
+        }
+        
+        pre .header-help {
+            color: #8abeb7;
+            font-weight: bold;
+        }
+        
+        pre .header-message {
+            color: #c5c8c6;
+            font-weight: bold;
+        }
+        
+        pre .line-number,
+        pre .source-border,
+        pre .note-bullet {
+            color: #81a2be;
+        }
+        
+        pre .label-primary-bug,
+        pre .label-primary-error {
+            color: #cc6666;
+        }
+        
+        pre .label-primary-warning {
+            color: #f0c674;
+        }
+        
+        pre .label-primary-note {
+            color: #b5bd68;
+        }
+        
+        pre .label-primary-help {
+            color: #8abeb7;
+        }
+        
+        pre .label-secondary-bug,
+        pre .label-secondary-error,
+        pre .label-secondary-warning,
+        pre .label-secondary-note,
+        pre .label-secondary-help {
+            color: #81a2be;
+        }
+  </style>
+
+  <foreignObject x="0" y="0" width="882" height="335">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <pre><span class="header-error">error[E0308]</span><span class="header-message">: `case` clauses have incompatible types</span>
+   <span class="source-border">┌─</span> FizzBuzz.fun:16:16
+   <span class="source-border">│</span>  
+<span class="line-number">10</span> <span class="source-border">│</span>   fizz₂ : Nat → String
+   <span class="source-border">│</span>                 <span class="label-secondary-error">------</span> <span class="label-secondary-error">expected type `String` found here</span>
+<span class="line-number">11</span> <span class="source-border">│</span>   fizz₂ num =
+<span class="line-number">12</span> <span class="source-border">│</span> <span class="label-secondary-error">╭</span>     case (mod num 5) (mod num 3) of
+<span class="line-number">13</span> <span class="source-border">│</span> <span class="label-secondary-error">│</span>         0 0 =&gt; "FizzBuzz"
+   <span class="source-border">│</span> <span class="label-secondary-error">│</span>                <span class="label-secondary-error">----------</span> <span class="label-secondary-error">this is found to be of type `String`</span>
+<span class="line-number">14</span> <span class="source-border">│</span> <span class="label-secondary-error">│</span>         0 _ =&gt; "Fizz"
+   <span class="source-border">│</span> <span class="label-secondary-error">│</span>                <span class="label-secondary-error">------</span> <span class="label-secondary-error">this is found to be of type `String`</span>
+<span class="line-number">15</span> <span class="source-border">│</span> <span class="label-secondary-error">│</span>         _ 0 =&gt; "Buzz"
+   <span class="source-border">│</span> <span class="label-secondary-error">│</span>                <span class="label-secondary-error">------</span> <span class="label-secondary-error">this is found to be of type `String`</span>
+<span class="line-number">16</span> <span class="source-border">│</span> <span class="label-secondary-error">│</span>         _ _ =&gt; <span class="label-primary-error">num</span>
+   <span class="source-border">│</span> <span class="label-secondary-error">│</span>                <span class="label-primary-error">^^^</span> <span class="label-primary-error">expected `String`, found `Nat`</span>
+   <span class="source-border">│</span> <span class="label-secondary-error">╰</span><span class="label-secondary-error">──────────────────' `case` clauses have incompatible types</span>
+   <span class="source-border">│</span>  
+   <span class="note-bullet">=</span> expected type `String`
+        found type `Nat`
+
+</pre>
+    </div>
+  </foreignObject>
+</svg>
