@@ -1150,52 +1150,6 @@ private func trimTrailing(_ string: String) -> String {
     return result
 }
 
-private func unicodeWidth(of scalar: UnicodeScalar) -> UInt {
-    let value = scalar.value
-    if value == 0 || value < 0x20 || (0x7F...0x9F).contains(value) {
-        return 0
-    }
-
-    let properties = scalar.properties
-    switch properties.generalCategory {
-        case .nonspacingMark, .enclosingMark, .format:
-            return 0
-        default:
-            break
-    }
-
-    if properties.isEmojiPresentation {
-        return 2
-    }
-
-    if isWideScalar(value) {
-        return 2
-    }
-
-    return 1
-}
-
-private func isWideScalar(_ value: UInt32) -> Bool {
-    switch value {
-        case 0x1100...0x115F,
-            0x2329...0x232A,
-            0x2E80...0xA4CF,
-            0xAC00...0xD7A3,
-            0xF900...0xFAFF,
-            0xFE10...0xFE19,
-            0xFE30...0xFE6F,
-            0xFF01...0xFF60,
-            0xFFE0...0xFFE6,
-            0x1F300...0x1F64F,
-            0x1F900...0x1F9FF,
-            0x20000...0x2FFFD,
-            0x30000...0x3FFFD:
-            return true
-        default:
-            return false
-    }
-}
-
 /// Adds tab-stop aware unicode-width computations to an iterator over
 /// character indices. Assumes that the character indices begin at the start
 /// of the line.

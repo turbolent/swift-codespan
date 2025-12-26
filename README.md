@@ -3,6 +3,9 @@
 Swift port of the Rust library [`codespan`](https://github.com/brendanzab/codespan),
 beautiful diagnostic reporting for text-based programming languages.
 
+Uses a port of the Rust library [`unicode-width`](https://github.com/unicode-rs/unicode-width)
+to determine the displayed width of Unicode characters.
+
 ![Example preview](./readme_preview.svg?sanitize=true)
 
 ## Example
