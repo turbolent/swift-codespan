@@ -1,0 +1,31 @@
+
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  macOS:
+    name: macOS
+    runs-on: macos-15
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
+
+  Linux:
+    name: Linux
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Get swift version
+      run: swift --version
+    - uses: actions/checkout@v4
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
