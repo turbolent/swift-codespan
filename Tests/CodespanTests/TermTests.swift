@@ -4,7 +4,7 @@ import XCTest
 
 final class TermTests: XCTestCase {
     func testUnsizedEmit() throws {
-        let files = Files<String>()
+        var files = Files<String>()
         let fileId = files.add(name: "test", source: "")
         let diagnostic = Diagnostic<FileId>.bug(
             labels: [

@@ -35,7 +35,7 @@ public enum ReadmeExample {
                 _ _ => num
         """
 
-        let files = Files<String>()
+        var files = Files<String>()
         let fileId = files.add(name: "FizzBuzz.fun", source: source)
 
         let diagnostic = Diagnostic<FileId>.error(

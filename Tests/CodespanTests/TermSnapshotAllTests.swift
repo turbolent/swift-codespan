@@ -80,7 +80,7 @@ private func makeEmptyData() -> SnapshotTestData {
 }
 
 private func makeSameLineData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "one_line.rs", source: unindent("""
         fn main() {
             let mut v = vec![Some(\"foo\"), Some(\"bar\")];
@@ -122,7 +122,7 @@ private func makeSameLineData() -> SnapshotTestData {
 }
 
 private func makeOverlappingData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
 
     let fileId1 = files.add(name: "nested_impl_trait.rs", source: unindent("""
         use std::fmt::Debug;
@@ -320,7 +320,7 @@ private func makeMessageErrorcodeData() -> SnapshotTestData {
 }
 
 private func makeEmptyRangesData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "hello", source: "Hello world!\nBye world!\n   ")
     let source = try? files.source(of: fileId)
     let eof = UInt(source?.utf8.count ?? 0)
@@ -373,7 +373,7 @@ private func makeEmptyRangesData() -> SnapshotTestData {
 }
 
 private func makeSameRangesData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "same_range", source: "::S { }")
     let diagnostics: [Diagnostic<FileId>] = [
         Diagnostic<FileId>.error(
@@ -398,7 +398,7 @@ private func makeSameRangesData() -> SnapshotTestData {
 }
 
 private func makeMultifileData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
 
     let fileId1 = files.add(name: "Data/Nat.fun", source: unindent("""
         module Data.Nat where
@@ -479,7 +479,7 @@ private func makeMultifileData() -> SnapshotTestData {
 }
 
 private func makeFizzBuzzData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
 
     let fileId = files.add(name: "FizzBuzz.fun", source: unindent("""
         module FizzBuzz where
@@ -574,7 +574,7 @@ private func makeFizzBuzzData() -> SnapshotTestData {
 }
 
 private func makeMultilineOverlappingData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(
         name: "codespan/src/file.rs",
         source: "        match line_index.compare(self.last_line_index()) {\n            Ordering::Less => Ok(self.line_starts()[line_index.to_usize()]),\n            Ordering::Equal => Ok(self.source_span().end()),\n            Ordering::Greater => LineIndexOutOfBoundsError {\n                given: line_index,\n                max: self.last_line_index(),\n            },\n        }"
@@ -619,7 +619,7 @@ private func makeMultilineOverlappingData() -> SnapshotTestData {
 }
 
 private func makeTabbedData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "tabbed", source: unindent("""
         Entity:
         \tArmament:
@@ -667,7 +667,7 @@ private func makeTabbedData() -> SnapshotTestData {
 }
 
 private func makeTabColumnsData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let source = unindent("""
         \thello
         ∙\thello
@@ -698,7 +698,7 @@ private func makeUnicodeData() -> SnapshotTestData {
     let prefix = "extern "
     let abi = "\"路濫狼á́́\""
     let suffix = " fn foo() {}"
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "unicode.rs", source: "\(prefix)\(abi)\(suffix)")
     let start = UInt(byteCount(prefix))
     let end = start + UInt(byteCount(abi))
@@ -753,7 +753,7 @@ private func makeUnicodeSpansData() -> SnapshotTestData {
     let invalidStart: UInt = 1
     let cowLength = UInt(byteCount("🐄"))
     let invalidEnd = cowLength - 1
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "moon_jump.rs", source: moonPhases)
     let diagnostics: [Diagnostic<FileId>] = [
         Diagnostic<FileId>.error(
@@ -805,7 +805,7 @@ private func makeUnicodeSpansData() -> SnapshotTestData {
 }
 
 private func makePositionIndicatorData() -> SnapshotTestData {
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "tests/main.js", source: unindent("""
         \"use strict\";
         let zero=0;
@@ -844,7 +844,7 @@ private func makeMultilineOmitData() -> SnapshotTestData {
     config.startContextLines = 2
     config.endContextLines = 1
 
-    let files = Files<String>()
+    var files = Files<String>()
 
     let fileId1 = files.add(name: "empty_if_comments.lua", source: [
         "elseif 3 then",
@@ -919,7 +919,7 @@ private func makeSurroundingLinesData() -> SnapshotTestData {
         afterLabelLines: 1
     )
 
-    let files = Files<String>()
+    var files = Files<String>()
     let fileId = files.add(name: "surroundingLines.fun", source: unindent("""
         #[foo]
         fn main() {

@@ -32,7 +32,7 @@ fizz₂ num =
         _ _ => num
 """
 
-var files = Files<String>()
+let files = Files<String>()
 let fileId = files.add(name: "FizzBuzz.fun", source: source)
 
 let diagnostic = Diagnostic<FileId>.error(

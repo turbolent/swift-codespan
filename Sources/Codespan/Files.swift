@@ -231,7 +231,7 @@ public struct FileRecord<Source: StringProtocol> {
 
 /// A database of source files.
 ///
-public final class Files<Source: StringProtocol>: FilesProtocol {
+public struct Files<Source: StringProtocol>: FilesProtocol {
 
     /// The files stored in the database.
     public private(set) var files: [FileRecord<Source>]
@@ -243,7 +243,7 @@ public final class Files<Source: StringProtocol>: FilesProtocol {
 
     /// Add a file to the database, returning the handle that can be used to
     /// refer to it again.
-    public func add(name: String, source: Source) -> FileId {
+    public mutating func add(name: String, source: Source) -> FileId {
         let fileId = FileId(rawValue: UInt(files.count))
         files.append(FileRecord(name: name, source: source))
         return fileId
@@ -253,7 +253,7 @@ public final class Files<Source: StringProtocol>: FilesProtocol {
     ///
     /// This will mean that any outstanding byte indexes will now point to
     /// invalid locations.
-    public func update(id: FileId, source: Source) {
+    public mutating func update(id: FileId, source: Source) {
         let index = Int(id.rawValue)
         guard files.indices.contains(index) else {
             return

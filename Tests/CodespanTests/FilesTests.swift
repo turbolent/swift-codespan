@@ -11,13 +11,13 @@ final class FilesTests: XCTestCase {
     }
 
     func testFilesLineStarts() throws {
-        let files = Files<String>()
+        var files = Files<String>()
         let fileId = files.add(name: "test", source: testSource)
         XCTAssertEqual(try files.lineStarts(of: fileId), [0, 4, 9, 10])
     }
 
     func testInteroperabilityPlaceholder() throws {
-        let files = Files<String>()
+        var files = Files<String>()
         let fileId = files.add(name: "test", source: testSource)
         let diagnostic = Diagnostic<FileId>.note(
             message: "middle",
