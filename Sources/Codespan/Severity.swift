@@ -1,6 +1,6 @@
 /// A severity level for diagnostic messages.
 ///
-public enum Severity: UInt8, Comparable, CustomStringConvertible {
+public enum Severity: UInt8, Comparable, CustomStringConvertible, Sendable {
 
     /// A help message.
     case help

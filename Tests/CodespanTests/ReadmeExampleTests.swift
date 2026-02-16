@@ -1,9 +1,11 @@
-import XCTest
+import Testing
 
 @testable import Codespan
 
-final class ReadmeExampleTests: XCTestCase {
-    func testReadmeExampleOutput() throws {
+@Suite
+struct ReadmeExampleTests {
+    @Test
+    func readmeExampleOutput() throws {
         let example = ReadmeExample.make()
 
         var output = ""
@@ -15,9 +17,8 @@ final class ReadmeExampleTests: XCTestCase {
             files: example.files,
             diagnostic: example.diagnostic
         )
-        XCTAssertEqual(
-            trimTrailingNewlines(output),
-            trimTrailingNewlines(example.expectedOutput)
+        #expect(
+            trimTrailingNewlines(output) == trimTrailingNewlines(example.expectedOutput)
         )
     }
 }

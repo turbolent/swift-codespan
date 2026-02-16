@@ -29,7 +29,7 @@
 /// - If `set` is called with a style, `{...}` is emitted containing the color attributes.
 /// - If `set` is called with no style, `{/}` is emitted
 /// - If reset is called, `{/}` is emitted.
-public struct DebugStyleEmitter: StyleEmitter {
+public struct DebugStyleEmitter: StyleEmitter, Sendable {
     private var current: Style = .none
 
     public init() {}

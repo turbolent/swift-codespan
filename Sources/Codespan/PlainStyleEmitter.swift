@@ -1,4 +1,4 @@
-public struct PlainStyleEmitter: StyleEmitter {
+public struct PlainStyleEmitter: StyleEmitter, Sendable {
     public init() {}
 
     public func write<Output: TextOutputStream>(

@@ -1,7 +1,7 @@
 
 /// An enum representing an error that happened while looking up a file
 /// or a piece of content in that file.
-public enum FilesError: Error {
+public enum FilesError: Error, Sendable {
 
     /// A required file is not in the file database.
     case fileMissing
@@ -163,7 +163,7 @@ public func lineStarts<Source: StringProtocol>(in source: Source) -> [UInt] {
 }
 
 /// A handle that points to a file in the database.
-public struct FileId: Equatable, Comparable, Hashable {
+public struct FileId: Equatable, Comparable, Hashable, Sendable {
 
     public var rawValue: UInt
 
@@ -229,6 +229,8 @@ public struct FileRecord<Source: StringProtocol> {
     }
 }
 
+extension FileRecord: Sendable where Source: Sendable {}
+
 /// A database of source files.
 ///
 public struct Files<Source: StringProtocol>: FilesProtocol {
@@ -293,6 +295,8 @@ public struct Files<Source: StringProtocol>: FilesProtocol {
         return files[index]
     }
 }
+
+extension Files: Sendable where Source: Sendable {}
 
 /// Find the line index for the given byte index using the provided line starts using binary search.
 /// Returns the previous line index if the byte index is not exactly at a line start.

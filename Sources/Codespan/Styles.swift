@@ -1,14 +1,14 @@
 /// Styles to use when rendering the diagnostic.
-public struct Styles {
+public struct Styles: Sendable {
 
     /// The style used to mark a header at a given severity.
-    public var header: (Severity) -> Style
+    public var header: @Sendable (Severity) -> Style
 
     /// The style to use when the main diagnostic message.
     public var headerMessage: Style
 
     /// The style used to mark a label at a given severity.
-    public var label: (Severity, LabelStyle) -> Style
+    public var label: @Sendable (Severity, LabelStyle) -> Style
 
     /// The style to use when rendering the line numbers.
     public var lineNumber: Style
@@ -20,9 +20,9 @@ public struct Styles {
     public var noteBullet: Style
 
     public init(
-        header: @escaping (Severity) -> Style,
+        header: @escaping @Sendable (Severity) -> Style,
         headerMessage: Style,
-        label: @escaping (Severity, LabelStyle) -> Style,
+        label: @escaping @Sendable (Severity, LabelStyle) -> Style,
         lineNumber: Style,
         sourceBorder: Style,
         noteBullet: Style

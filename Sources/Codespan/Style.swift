@@ -1,4 +1,4 @@
-public struct Style: Equatable {
+public struct Style: Equatable, Sendable {
     public var foreground: Color?
     public var background: Color?
     public var isBold: Bool
