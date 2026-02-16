@@ -55,3 +55,5 @@ public struct Label<FileId: Equatable>: Equatable {
         )
     }
 }
+
+extension Label: Sendable where FileId: Sendable {}

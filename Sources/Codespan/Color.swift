@@ -1,5 +1,5 @@
 /// The set of available colors for the terminal foreground/background.
-public enum Color {
+public enum Color: Sendable {
     case black
     case red
     case green

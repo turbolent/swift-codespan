@@ -1,6 +1,6 @@
 /// A user-facing location in a source file.
 /// Line number and column number are both 1-indexed.
-public struct Location: Equatable {
+public struct Location: Equatable, Sendable {
 
     /// The user-facing line number.
     public var lineNumber: UInt

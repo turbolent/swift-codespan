@@ -1,5 +1,5 @@
 /// Applies styling for different parts of a diagnostic renderer.
-public protocol StyleEmitter {
+public protocol StyleEmitter: Sendable {
 
     func write<Output: TextOutputStream>(
         _ string: String,

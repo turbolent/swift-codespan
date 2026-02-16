@@ -1,5 +1,5 @@
 /// An enumeration describing the style of a label in a diagnostic.
-public enum LabelStyle: UInt8, Comparable {
+public enum LabelStyle: UInt8, Comparable, Sendable {
 
     /// Labels that describe the primary cause of a diagnostic.
     case primary

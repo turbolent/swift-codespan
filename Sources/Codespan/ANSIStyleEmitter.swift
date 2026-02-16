@@ -1,4 +1,4 @@
-public struct ANSIStyleEmitter: StyleEmitter {
+public struct ANSIStyleEmitter: StyleEmitter, Sendable {
     private var current: Style = .none
 
     public init() {}

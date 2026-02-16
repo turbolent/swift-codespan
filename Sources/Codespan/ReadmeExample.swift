@@ -1,4 +1,4 @@
-public struct ReadmeExampleData {
+public struct ReadmeExampleData: Sendable {
     public let files: Files<String>
     public let diagnostic: Diagnostic<FileId>
     public let expectedOutput: String
@@ -14,7 +14,7 @@ public struct ReadmeExampleData {
     }
 }
 
-public enum ReadmeExample {
+public enum ReadmeExample: Sendable {
     public static func make() -> ReadmeExampleData {
         let source = """
         module FizzBuzz where

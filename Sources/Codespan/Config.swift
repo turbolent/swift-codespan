@@ -1,5 +1,5 @@
 /// Configures how a diagnostic is rendered.
-public struct Config {
+public struct Config: Sendable {
     /// The display style to use when rendering diagnostics.
     /// Defaults to: `DisplayStyle.rich`.
     public var displayStyle: DisplayStyle

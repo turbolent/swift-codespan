@@ -26,7 +26,7 @@
 /// - a header with warning severity would have the class name `header-warning`
 /// - a line number would have the class name `line-number`
 ///
-public struct SVGStyleEmitter: StyleEmitter {
+public struct SVGStyleEmitter: StyleEmitter, Sendable {
     private var current: Style = .none
 
     public init() {}

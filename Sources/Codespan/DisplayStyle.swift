@@ -1,5 +1,5 @@
 /// The display style to use when rendering diagnostics.
-public enum DisplayStyle {
+public enum DisplayStyle: Sendable {
     /// Output a richly formatted diagnostic, with source code previews.
     ///
     /// ```text

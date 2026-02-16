@@ -122,3 +122,5 @@ public struct Diagnostic<FileId: Equatable>: Equatable {
         )
     }
 }
+
+extension Diagnostic: Sendable where FileId: Sendable {}

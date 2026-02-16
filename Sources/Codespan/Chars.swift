@@ -1,5 +1,5 @@
 /// Characters to use when rendering the diagnostic.
-public struct Chars {
+public struct Chars: Sendable {
     /// The characters to use for the top-left border of the snippet.
     public var snippetStart: String
 
