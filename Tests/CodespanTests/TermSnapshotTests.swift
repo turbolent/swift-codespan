@@ -1,8 +1,10 @@
-import XCTest
+import Testing
 @testable import Codespan
 
-final class TermSnapshotTests: XCTestCase {
-    func testMessageErrorcodeRichNoColor() throws {
+@Suite
+struct TermSnapshotTests {
+    @Test
+    func messageErrorcodeRichNoColor() throws {
         let files = Files<String>()
         let diagnostics = messageErrorcodeDiagnostics()
         let output = try emitAll(diagnostics: diagnostics, config: Config(displayStyle: .rich), files: files)
@@ -26,10 +28,11 @@ help: where did my errorcode go?
 
 
 """
-        XCTAssertEqual(output, expected)
+        #expect(output == expected)
     }
 
-    func testMessageErrorcodeShortNoColor() throws {
+    @Test
+    func messageErrorcodeShortNoColor() throws {
         let files = Files<String>()
         let diagnostics = messageErrorcodeDiagnostics()
         let output = try emitAll(diagnostics: diagnostics, config: Config(displayStyle: .short), files: files)
@@ -45,10 +48,11 @@ note: where did my errorcode go?
 help: where did my errorcode go?
 
 """
-        XCTAssertEqual(output, expected)
+        #expect(output == expected)
     }
 
-    func testEmptyDiagnosticsRichNoColor() throws {
+    @Test
+    func emptyDiagnosticsRichNoColor() throws {
         let files = Files<String>()
         let diagnostics = emptyDiagnostics()
         let output = try emitAll(diagnostics: diagnostics, config: Config(displayStyle: .rich), files: files)
@@ -68,10 +72,11 @@ bug:
 
 
 """
-        XCTAssertEqual(output, expected)
+        #expect(output == expected)
     }
 
-    func testEmptyDiagnosticsMediumNoColor() throws {
+    @Test
+    func emptyDiagnosticsMediumNoColor() throws {
         let files = Files<String>()
         let diagnostics = emptyDiagnostics()
         let output = try emitAll(diagnostics: diagnostics, config: Config(displayStyle: .medium), files: files)
@@ -85,10 +90,11 @@ help:
 bug: 
 
 """
-        XCTAssertEqual(output, expected)
+        #expect(output == expected)
     }
 
-    func testEmptyDiagnosticsShortNoColor() throws {
+    @Test
+    func emptyDiagnosticsShortNoColor() throws {
         let files = Files<String>()
         let diagnostics = emptyDiagnostics()
         let output = try emitAll(diagnostics: diagnostics, config: Config(displayStyle: .short), files: files)
@@ -102,7 +108,7 @@ help:
 bug: 
 
 """
-        XCTAssertEqual(output, expected)
+        #expect(output == expected)
     }
 }
 

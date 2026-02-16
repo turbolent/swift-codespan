@@ -1,9 +1,11 @@
-import XCTest
+import Testing
 
 @testable import Codespan
 
-final class TermTests: XCTestCase {
-    func testUnsizedEmit() throws {
+@Suite
+struct TermTests {
+    @Test
+    func unsizedEmit() throws {
         var files = Files<String>()
         let fileId = files.add(name: "test", source: "")
         let diagnostic = Diagnostic<FileId>.bug(

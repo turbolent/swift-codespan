@@ -1,8 +1,11 @@
-import XCTest
+import Foundation
+import Testing
 @testable import Codespan
 
-final class TermSnapshotAllTests: XCTestCase {
-    func testAllTermSnapshots() throws {
+@Suite
+struct TermSnapshotAllTests {
+    @Test
+    func allTermSnapshots() throws {
         let snapshotNames = try loadSnapshotNames()
         for name in snapshotNames {
             let (module, variant) = parseSnapshotName(name)
@@ -11,7 +14,7 @@ final class TermSnapshotAllTests: XCTestCase {
             let theme = themeForVariant(variant)
             let expected = trimTrailingNewlines(try loadSnapshotContent(name: name))
             let output = trimTrailingNewlines(try testData.emit(config, theme))
-            XCTAssertEqual(output, expected, "Snapshot mismatch: \(name)")
+            #expect(output == expected, "Snapshot mismatch: \(name)")
         }
     }
 }
